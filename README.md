@@ -4,7 +4,7 @@
 
 * [login](chrome/js/greetings.js)
 
-> submit event
+> **submit event**
 
 form의 기본 동작: Occurs when you press Enter or click a button.  
 새로고침이 일어나는 건 form submit의 기본 동작이다.
@@ -19,9 +19,9 @@ event를 인자로 전달, _e_.preventDefault()를 명시하여 새로고침을 
 const HIDDEN_CLASSNAME = "hidden";
 ```
 
----
+<br>
 
-- localStorage API를 사용해 username 기억하기
+> **localStorage API를 사용해 username 기억하기**
 
 ```javascript
 localStorage.setItem(key, value);
@@ -71,7 +71,8 @@ setInterval(getClock, 1000);
 1.  초를 셀때 두자리 숫자가 아닌 0과 같은 한자리 숫자로 표기되는 방식 수정.
 2.  매 초마다 기다려야 하므로 시간을 바로 보여주지 않는 점 수정.
 
-**첫 번째 문제 해결하기**  
+> **첫 번째 문제 해결하기**  
+
 한 자리 숫자로 표기되는 부분을 항상 두 자리 숫자로 표기되도록 수정.  
 (string이 최소한 2개의 문자를 가지고 있어야 한다.  
 만약 1자리 숫자일 경우 앞에 0을 붙여준다. 만약 2자리 숫자라면 스킵.)
@@ -94,8 +95,10 @@ const hours = String(date.getHours()).padStart(2, "0");
 const minutes = String(date.getMinutes()).padStart(2, "0");
 const seconds = String(date.getSeconds()).padStart(2, "0");
 ```
+<br>
 
-**두 번째 문제 해결하기**  
+> **두 번째 문제 해결하기**  
+
 website가 load 되자마자 getclock()을 실행하고 매 초마다 다시 실행 되도록 한다.  
 이렇게 하면 한번 호출한 다음 그뒤로도 계속 실행되는 것을 확인할 수 있다.
 
@@ -106,3 +109,10 @@ website가 load 되자마자 getclock()을 실행하고 매 초마다 다시 실
 Math.floor() // 내림처리 한 정수 리턴.
 Math.random() // 0~1 사이의 랜덤한 숫자.
 ```
+---
+
+### 랜덤 background image
+img요소 생성  
+document.createElement('img');
+
+---
