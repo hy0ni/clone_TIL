@@ -119,3 +119,4 @@ document.createElement('img');
 
 ### ToDo 리스트
 adding ToDo List: li와 span 태그 생성. input value값 넣어주기.  
+deleting button: li 삭제 버튼 추가하기. button click event. click시 해당 버튼의 부모인 li 지워주기
