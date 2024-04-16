@@ -116,3 +116,6 @@ img요소 생성
 document.createElement('img');
 
 ---
+
+### ToDo 리스트
+adding ToDo List: li와 span 태그 생성. input value값 넣어주기.  
