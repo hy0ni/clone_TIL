@@ -1,10 +1,10 @@
 ## Chrome app 구현하기
 
-> Login 기능
+### Login 기능
 
-code >>> [login](./chrome/js/greetings.js)
+* [login](chrome/js/greetings.js)
 
-- submit event
+> submit event
 
 form의 기본 동작: Occurs when you press Enter or click a button.  
 새로고침이 일어나는 건 form submit의 기본 동작이다.
@@ -46,8 +46,8 @@ getItem을 활용해 localStorge에 유저정보 유무 확인하는 코드 작�
 
 ---
 
-> 시계 구현하기
-> code >>> [color](./chrome/js/clock.js)
+### 시계 구현하기
+* [color](chrome/js/clock.js)
 
 setInterval()을 사용하여 매 초마다 시간을 불러오는 함수를 호출하도록 작성.  
 new Date object는 현재 날짜, 시간, 분, 초에 대한 정보를 가지고 있으므로,  
@@ -98,3 +98,11 @@ const seconds = String(date.getSeconds()).padStart(2, "0");
 **두 번째 문제 해결하기**  
 website가 load 되자마자 getclock()을 실행하고 매 초마다 다시 실행 되도록 한다.  
 이렇게 하면 한번 호출한 다음 그뒤로도 계속 실행되는 것을 확인할 수 있다.
+
+
+### 랜덤 명언 리스트
+* [quotes](chrome/js/quotes.js)
+```javascript
+Math.floor() // 내림처리 한 정수 리턴.
+Math.random() // 0~1 사이의 랜덤한 숫자.
+```
