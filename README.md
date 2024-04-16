@@ -119,4 +119,13 @@ document.createElement('img');
 
 ### ToDo 리스트
 adding ToDo List: li와 span 태그 생성. input value값 넣어주기.  
+
 deleting button: li 삭제 버튼 추가하기. button click event. click시 해당 버튼의 부모인 li 지워주기
+
+saving ToDO List: li 저장하기.(새로고침시 삭제 방지)  
+todo list작성 후 localStorage에 저장. 새로고침시 localStroage에 저장되어 있는 값 불러오기.
+toDos변수를 만들고 배열 생성. 
+새로운 todoli를 생성하기 전 toDos array를 가지고 와서 newTodo push.
+todoli에 저장된 value값을 localStorage에 저장.(새로고침시 초기화 된다는 !문제가 있다.)
+!문제점: localStorage에는 array를 저장할 수 없다.(string만 가능))
+JSON.stringify()를 사용해 단순 string으로 변환.
