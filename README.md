@@ -172,6 +172,19 @@ filter()를 활용해 지우고 싶은 item을 제외하고 새 array만든다.
 ```javascript
 toDos = toDos.filter((toDo) => toDo.id !== li.id);
 ```
+
 현재 클릭한 li.id와 다른 toDo는 남겨두고 새로운 배열을 만든다.
 li에 들어있는 id의 값은 string으로 저장되어 있으므로 number type으로 변환하고  
 다시 localStorage에 저장한다.
+
+### 날씨 API 활용
+1. user의 위치 좌표를 가져온다.
+navigator.geolocation.getCurrentPosition()
+user의 위치 좌표를 나타내주는 함수.
+
+```javascript
+navigator.geolocation.getCurrentPosition(success, error);
+```
+getCurrentPosition()은 2개의 argument가 필요하다.
+첫 번째 모든 게 잘 됐을때 실행 될 함수, 두 번째 에러가 발생했을 때 실행 될 함수.
+
