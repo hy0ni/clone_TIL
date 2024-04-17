@@ -155,5 +155,23 @@ parsedToDos array 내부의 item들을 list에 뿌려준다.
 이 문제점의 이유는 브라우저가 실행될 때 toDos array의 값이 항상 비어있으므로,
 newToDo를 작성하고 form을 submit할 때마다 비어있는 array에 값이 push되기 때문에 새로운 값만 저장된다.
 
-해결방법: 브라우저가 실행될 때 toDos를 const가 아닌 let으로 값이 업데이트 될 수 있도록 변경한다. 
+해결방법: 브라우저가 실행될 때 toDos를 const가 아닌 let으로 값이 업데이트 될 수 있도록 변경한다.
 localStorage에 toDo값이 들어있으면 toDos에 parsedToDos값을 넣어서 이전에 있던 값들을 복원한다.
+
+deleteing ToDo List:  
+element가 만들어질 때 각각의 li item들에 랜덤한 id값을 설정해 중복되는 li를 구분한다.
+
+form을 submit할 때 todolist의 text를 push하지 않고, object push하기.
+Date.now()는 밀리초(1000분의 1초)를 주는 함수이다.
+
+ToDo list를 지울 때마다 localStorage 업데이트 하기.
+클릭한 X버튼의 id 얻기.
+
+filter()를 활용해 지우고 싶은 item을 제외하고 새 array만든다.
+
+```javascript
+toDos = toDos.filter((toDo) => toDo.id !== li.id);
+```
+현재 클릭한 li.id와 다른 toDo는 남겨두고 새로운 배열을 만든다.
+li에 들어있는 id의 값은 string으로 저장되어 있으므로 number type으로 변환하고  
+다시 localStorage에 저장한다.
