@@ -2,7 +2,7 @@
 
 ### Login 기능
 
-* [login](chrome/js/greetings.js)
+- [login](chrome/js/greetings.js)
 
 > **submit event**
 
@@ -47,12 +47,13 @@ getItem을 활용해 localStorge에 유저정보 유무 확인하는 코드 작�
 ---
 
 ### 시계 구현하기
-* [color](chrome/js/clock.js)
+
+- [color](chrome/js/clock.js)
 
 setInterval()을 사용하여 매 초마다 시간을 불러오는 함수를 호출하도록 작성.  
 new Date object는 현재 날짜, 시간, 분, 초에 대한 정보를 가지고 있으므로,  
-object를 매 초마다 새로 create한다.  
-  
+object를 매 초마다 새로 create한다.
+
 getHours(), getMinutes(), getSeconds() 메소드를 사용하여 시간, 분, 초에 대한 정보 가져오기.
 
 ```javascript
@@ -71,7 +72,7 @@ setInterval(getClock, 1000);
 1.  초를 셀때 두자리 숫자가 아닌 0과 같은 한자리 숫자로 표기되는 방식 수정.
 2.  매 초마다 기다려야 하므로 시간을 바로 보여주지 않는 점 수정.
 
-> **첫 번째 문제 해결하기**  
+> **첫 번째 문제 해결하기**
 
 한 자리 숫자로 표기되는 부분을 항상 두 자리 숫자로 표기되도록 수정.  
 (string이 최소한 2개의 문자를 가지고 있어야 한다.  
@@ -95,37 +96,64 @@ const hours = String(date.getHours()).padStart(2, "0");
 const minutes = String(date.getMinutes()).padStart(2, "0");
 const seconds = String(date.getSeconds()).padStart(2, "0");
 ```
+
 <br>
 
-> **두 번째 문제 해결하기**  
+> **두 번째 문제 해결하기**
 
 website가 load 되자마자 getclock()을 실행하고 매 초마다 다시 실행 되도록 한다.  
 이렇게 하면 한번 호출한 다음 그뒤로도 계속 실행되는 것을 확인할 수 있다.
 
-
 ### 랜덤 명언 리스트
-* [quotes](chrome/js/quotes.js)
+
+- [quotes](chrome/js/quotes.js)
+
 ```javascript
-Math.floor() // 내림처리 한 정수 리턴.
-Math.random() // 0~1 사이의 랜덤한 숫자.
+Math.floor(); // 내림처리 한 정수 리턴.
+Math.random(); // 0~1 사이의 랜덤한 숫자.
 ```
+
 ---
 
 ### 랜덤 background image
+
 img요소 생성  
 document.createElement('img');
 
 ---
 
 ### ToDo 리스트
-adding ToDo List: li와 span 태그 생성. input value값 넣어주기.  
+
+adding ToDo List: li와 span 태그 생성. input value값 넣어주기.
 
 deleting button: li 삭제 버튼 추가하기. button click event. click시 해당 버튼의 부모인 li 지워주기
 
 saving ToDO List: li 저장하기.(새로고침시 삭제 방지)  
 todo list작성 후 localStorage에 저장. 새로고침시 localStroage에 저장되어 있는 값 불러오기.
-toDos변수를 만들고 배열 생성. 
+
+toDos변수를 만들고 배열 생성.
 새로운 todoli를 생성하기 전 toDos array를 가지고 와서 newTodo push.
-todoli에 저장된 value값을 localStorage에 저장.(새로고침시 초기화 된다는 !문제가 있다.)
-!문제점: localStorage에는 array를 저장할 수 없다.(string만 가능))
-JSON.stringify()를 사용해 단순 string으로 변환.
+todoli에 저장된 value값을 localStorage에 저장.
+문제점:
+새로고침시 초기화 된다.
+localStorage에는 array를 저장할 수 없다.(string만 가능)
+
+JSON.stringify()를 활용하여 string으로 변환.
+단순 text이므로 각각의 item에 접근X. javascript object 변환해줘야 한다.
+
+javascript object으로 변환하기 위한 방법:
+JSON.parse()를 활용해 javascript가 이해할 수 있는 array로 변환한다.
+
+localStorage에 어떠한 값도 저장되어 있지만으면 null이므로,  
+if문으로 값이 있는 경우의 조건을 작성한다.
+
+forEach문으로 array의 각 item에 대해 함수를 실행할 수 있다.
+parsedToDos array 내부의 item들을 list에 뿌려준다.
+코드에서 작성한 paintToDo 함수는 화면에 li를 그려주는 역할이기 때문에 forEach문에서 함수를 호출한다.
+
+문제점: 새로운 값을 저장할 경우 localStorage에 저장되는 값들을 덮어씌우게 된다.
+이 문제점의 이유는 브라우저가 실행될 때 toDos array의 값이 항상 비어있으므로,
+newToDo를 작성하고 form을 submit할 때마다 비어있는 array에 값이 push되기 때문에 새로운 값만 저장된다.
+
+해결방법: 브라우저가 실행될 때 toDos를 const가 아닌 let으로 값이 업데이트 될 수 있도록 변경한다. 
+localStorage에 toDo값이 들어있으면 toDos에 parsedToDos값을 넣어서 이전에 있던 값들을 복원한다.
