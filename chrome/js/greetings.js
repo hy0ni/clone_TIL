@@ -1,7 +1,6 @@
 const $loginForm = document.querySelector('#login-form')
 const $loginInput = document.querySelector('#login-form input');
 const $greeting = document.querySelector('#greeting');
-const $error = document.querySelector('.error');
 
 const HIDDEN_CLASSNAME = 'hidden';
 const USERNAME_KEY = 'username';
@@ -10,7 +9,7 @@ function onLoginSubmit(e) {
   e.preventDefault();
   const typedUsername = $loginInput.value;
   if (typedUsername === '') {
-    $error.classList.remove(HIDDEN_CLASSNAME);
+    alert('이름을 입력 하세요.')
   } else {
     $loginForm.classList.add(HIDDEN_CLASSNAME);
     $error.classList.add(HIDDEN_CLASSNAME);

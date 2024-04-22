@@ -1,5 +1,7 @@
 ## Chrome app 구현하기
 
+![img](chrome/img/chrome.png)
+
 > [Chrome](chrome/chrome.md)
 
 - [login](chrome/js/greetings.js)

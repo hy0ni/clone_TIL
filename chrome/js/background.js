@@ -11,7 +11,3 @@ const { body } = document;
 bgImage.src = `img/${chosenImage}`;
 
 body.appendChild(bgImage);
-
-if (chosenImage !== images[0]) {
-  body.style.color = '#fff';
-}
