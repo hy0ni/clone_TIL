@@ -66,7 +66,7 @@ function onLineWidthChange(e) {
 $lineWidth.addEventListener("change", onLineWidthChange);
 ```
 
-선을 그릴때 input의 value값으로 그려주는데 이 경우 새로 그려지는 선들도 value를 변경할 때마다 같이 변경되므로,   
+선을 그릴때 input의 value값으로 그려주는데 이 경우 새로 그려지는 선들도 value를 변경할 때마다 같이 변경되므로,  
 이전에 그려진 선과 새로운 선의 연결을 끊어줘야한다.
 (모든 line들은 같은 path로 그려지기 때문이다.)
 
@@ -84,3 +84,16 @@ user가 선을 그리고 그리는게 끝나면, 새로운 path를 시작하도�
 ```
 
 range input의 또 다른 attribute인 step을 지정해주면 증가되는 정도의 값을 지정해줄 수 있다.
+
+### 3. Paint color change
+
+type이 color인 input 추가.
+stroke와 fill이 선택한 color로 변경될 수 있도록 함수 정의.
+
+```javascript
+function onColorChange(e) {
+  ctx.strokeStyle = e.target.value;
+  ctx.fillStyle = e.target.value;
+}
+$color.addEventListener("change", onColorChange);
+```
