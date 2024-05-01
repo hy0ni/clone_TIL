@@ -97,3 +97,27 @@ function onColorChange(e) {
 }
 $color.addEventListener("change", onColorChange);
 ```
+
+사용자에게 미리 만들어진 색상을 제공하기 위해 팔레트 만들기.
+
+```javascript
+const $colorOptions = Array.from(document.getElementsByClassName("color-option"));
+```
+
+각각의 li에 접근하기 위해 forEach를 활용.
+HTMLCollection는 배열이 아니기 때문에 배열로 변경하기 위해 Array.from()을 사용하여 배열을 생성한다.
+
+```javascript
+function onColorClick(e) {
+  ctx.strokeStyle = e.target.dataset.color;
+  ctx.fillStyle = e.target.dataset.color;
+  $color.value = e.target.dataset.color;
+}
+
+$colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
+```
+
+color를 click할 때마다 addEventListener를 호출한다.
+dataset를 활용해 클릭한 li의 color 알아내기.
+(color만 변경하는 함수 만들어보기.)
+li를 클릭했을 때 해당 color로 input color 변경하기.(사용자에게 선택한 색상을 보여주기 위함.)
