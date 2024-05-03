@@ -128,3 +128,11 @@ fill mode or draw mode 변경 button 만들기.
 
 만약 isFilling이 false일 때 버튼을 클릭하면 채우기모드로 변경, true면 그리기 모드로 변경되도록 만들기.
 fill mode일 경우 캔버스 크기의 새로운 사각형을 만들고 해당 색상으로 채운다.
+
+### Destroy (그림판 초기화)
+
+1. canvas 초기화
+   canvas를 흰색 배경으로 채워 초기화.
+
+2. Eraser
+   그리기 모드일 때 흰색으로 그려주기.
