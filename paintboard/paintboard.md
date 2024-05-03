@@ -121,3 +121,10 @@ color를 click할 때마다 addEventListener를 호출한다.
 dataset를 활용해 클릭한 li의 color 알아내기.
 (color만 변경하는 함수 만들어보기.)
 li를 클릭했을 때 해당 color로 input color 변경하기.(사용자에게 선택한 색상을 보여주기 위함.)
+
+### 4. Filling Mode
+
+fill mode or draw mode 변경 button 만들기.
+
+만약 isFilling이 false일 때 버튼을 클릭하면 채우기모드로 변경, true면 그리기 모드로 변경되도록 만들기.
+fill mode일 경우 캔버스 크기의 새로운 사각형을 만들고 해당 색상으로 채운다.
