@@ -105,6 +105,7 @@ const $colorOptions = Array.from(document.getElementsByClassName("color-option")
 ```
 
 각각의 li에 접근하기 위해 forEach를 활용.
+forEach 함수를 사용하기 위해서는 배열이 필요하다.
 HTMLCollection는 배열이 아니기 때문에 배열로 변경하기 위해 Array.from()을 사용하여 배열을 생성한다.
 
 ```javascript
