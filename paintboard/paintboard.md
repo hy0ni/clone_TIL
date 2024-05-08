@@ -136,4 +136,35 @@ fill mode일 경우 캔버스 크기의 새로운 사각형을 만들고 해당 
    canvas를 흰색 배경으로 채워 초기화.
 
 2. Eraser
-   그리기 모드일 때 흰색으로 그려주기.
+   그리기 모드일 때 흰색으로 그려주기. fill & draw mode button text 변경.
+
+### 5. Adding images
+
+canvas에 이미지를 넣을 수 있는 기능 만들기.
+
+type이 file인 input을 만들고 accept을 활용해 파일의 타입 설정하기.  
+input에 change event 적용.
+
+1. 파일을 선택하면 업로드한 파일 가져오기.
+2. 선택한 파일의 url 요청하기.
+3. 선택한 파일의 image를 가지고 있는 img tag 생성.
+4. load되면 canvas에 이미지 그리기.
+5. 이미지를 그릴 때 file input 비우기.(또 다른 이미지를 추가하기 위함)
+
+- event를 추가하는 또 다른 방법
+
+```javascript
+canvas.addEventListener("mousemove", onMove);
+canvas.onmousemove = onMove;
+```
+
+위 두 코드는 동일한 코드이다.
+
+image가 load되었을 때 함수 실행.
+drawImage()라는 context 메서드 활용.
+
+```javascript
+ctx.drawImage(image, 0, 0, 100, 100);
+```
+
+drawImage(이미지, 이미지를 배치하기 위한 위치 x,y 좌표, 크기 설정 w,h)
