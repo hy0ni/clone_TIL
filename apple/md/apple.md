@@ -32,3 +32,6 @@ scroll-section 4개의 구간으로 마크업.
 
 실행되는 구간에 해당되는 sticky-elem클래스를 가진 요소들만
 보여지도록 하기.
+
+### #2. 스크롤 높이 세팅
+[스크롤 높이 세팅](scroll_height.md)
