@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹페이지에 스크롤 애니메이션 쉽게 주는 방법</title>
+  <style>
+    body {
+      background: #000;
+      height: 6000px;
+    }
+
+    div {
+      margin-top: 1000px;
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+      transform: rotate(-720deg);
+      transition: all 2s;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, fugiat.</div>
+  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, fugiat.</div>
+  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, fugiat.</div>
+  <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, fugiat.</div>
+
+  <script>
+    let observer = new IntersectionObserver((e) => {
+      e.forEach((box) => {
+        //화면에 보일때만 opacity를 1로 변경
+        if (box.isIntersecting) {
+          // box가 화면에 보일땐 자동으로 true가 되고, 안보일 땐 isIntersecting변수가 자동으로 false가 된다.
+          box.target.style.opacity = 1;
+          box.target.style.transform = `rotate(0deg)`;
+        }
+        box.intersectionRatio //intersectionRatio를 사용하면 box가 화면에 몇퍼센트만큼 등장하고있는지 알 수 있다.(box가 반쯤보이면 0.5가 출력됨)
+
+
+        //         if (box.isIntersecting) {
+        //   // box가 화면에 보일땐 자동으로 true가 되고, 안보일 땐 isIntersecting변수가 자동으로 false가 된다.
+        //   box.target.style.opacity = 1;
+        //   box.target.style.transform = `rotate(0deg)`;
+        // } else {
+        //   // box가 사라질때(감시중인 박스가 없어질 때 실행될 코드)
+        //   box.target.style.opacity = 0;
+
+        // }
+      })
+    })
+
+    let $div = document.querySelectorAll('div')
+    observer.observe($div[0]) // html요소가 화면에 등장하는지 감시해줌
+    observer.observe($div[1])
+    observer.observe($div[2])
+    observer.observe($div[3])
+  </script>
+</body>
+
+</html>
